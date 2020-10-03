@@ -1,0 +1,20 @@
+version: '3'
+services:
+  flask:
+      container_name: flask_restful
+      image: "flask_restful:test"
+      ports:
+       - "5000:5000"
+      networks:
+      - backend
+  nginx:
+      container_name: nginx_for_restful
+      image: "nginx_for_restful:test"
+      ports:
+       - "81:81"
+      networks:
+       - backend
+
+networks:
+  backend:
+    driver: bridge
